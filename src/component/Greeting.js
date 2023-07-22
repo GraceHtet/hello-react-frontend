@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+
 import { fetchGreetings } from '../store/greetingsSlice';
 
 const Greeting = () => {
@@ -11,7 +11,7 @@ const Greeting = () => {
   useEffect(() => {
     dispatch(fetchGreetings());
     setNumber(Math.floor(Math.random() * 4));
-  }, []);
+  }, [dispatch]);
 
   let message;
   greetings.forEach((greeting, idx) => {

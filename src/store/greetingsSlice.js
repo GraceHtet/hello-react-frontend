@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const base_url = 'http://127.0.0.1:3000/api/greetings';
+const BASE_URL = 'http://127.0.0.1:3000/api/greetings';
 const initialState = {
   greetings: [],
   isLoading: false,
@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchGreetings = createAsyncThunk('greetings/fetchGreetings', async () => {
   try {
-    const response = await fetch(base_url);
+    const response = await fetch(BASE_URL);
     const data = await response.json();
     return data;
   } catch (error) {
