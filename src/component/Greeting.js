@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchGreetings } from '../store/greetingsSlice';
 
-const Greeting = () => {
+function Greeting() {
   const [number, setNumber] = useState(1); // [1
   const { greetings, isLoading } = useSelector((state) => state.greetings);
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Greeting = () => {
     if (idx === number) message = greeting.message;
   });
 
-  return <>{!isLoading && <h1>{message}</h1>}</>;
-};
+  return <div>{!isLoading && <h1>{message}</h1>}</div>;
+}
 
 export default Greeting;
